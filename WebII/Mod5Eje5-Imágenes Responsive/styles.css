@@ -1,0 +1,177 @@
+/* Reseteo básico y estilos generales */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 50%, #34d1bf 100%);
+}
+
+/* Contenedor principal con tarjeta centrada y más color */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    border-top: 4px solid #34d1bf;
+}
+
+/* Títulos con acento de color */
+h2 {
+    color: #222;
+    border-left: 5px solid #ff6b6b;
+    padding-left: 10px;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+/* Subtítulos o texto destacado opcional */
+h3 {
+    color: #555;
+}
+
+/* Imágenes fluidas */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    margin: 0.75rem 0;
+}
+
+/* --------------------------------------------------
+   CASO 3: Lógica para Fondo Responsive
+   -------------------------------------------------- */
+
+.hero-background {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    transition: background-image 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    /* 1. Mobile First (Imagen pequeña por defecto) */
+    background-image: url('https://placehold.co/400x400/ff6b6b/FFF?text=BG+Mobile');
+}
+
+/* Efecto overlay de color encima de la imagen */
+.hero-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(78,84,200,0.7), rgba(143,148,251,0.7));
+    mix-blend-mode: multiply;
+}
+
+.hero-background > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-background:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* Texto dentro del hero (por si agregas h1, p, etc.) */
+.hero-background h1,
+.hero-background h2,
+.hero-background p {
+    margin: 0;
+}
+
+/* 2. Tablet (Media Query) */
+@media (min-width: 600px) {
+    .hero-background {
+        background-image: url('https://placehold.co/800x400/feca57/333?text=BG+Tablet');
+    }
+}
+
+/* 3. Desktop (Media Query) */
+@media (min-width: 1024px) {
+    .hero-background {
+        background-image: url('https://placehold.co/1200x400/34d1bf/FFF?text=BG+Desktop');
+    }
+}
+
+/* 4. Pantallas de alta densidad (Retina display) - Opcional pero recomendado */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-background {
+        /* Aquí podrías cargar una imagen @2x para mayor nitidez */
+        border: 2px solid #ffdd59; /* Borde dorado/amarillo para indicar retina en este demo */
+    }
+}
+/* =========================================================
+   🎨 Estética adicional para secciones blancas (sin alterar estructura)
+   ========================================================= */
+
+/* Contenedor general blanco */
+.container {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* Títulos con acento colorido */
+h2 {
+    background: linear-gradient(90deg, #ff6b6b, #ff9671);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    border-left: 5px solid #ff6b6b;
+    padding-left: 10px;
+}
+
+/* Línea separadora más estética */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #8f94fb, #4e54c8);
+    margin: 2rem 0;
+    border-radius: 2px;
+}
+
+/* Tarjetas de imagen (efecto moderno) */
+.responsive-img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 3px solid rgba(255,255,255,0.8);
+}
+
+/* Bloques donde están las imágenes (auto generado por tus divs) */
+.section-block {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    border-left: 5px solid #34d1bf;
+}
+
+/* Texto descriptivo bajo los títulos */
+p {
+    color: #444;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+/* Acento sutil en hover para secciones */
+.section-block:hover {
+    transform: translateY(-4px);
+    transition: 0.3s ease;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+}
