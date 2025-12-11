@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bordes y Border-Rodrigo Brailco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0d0f1a;
+            color: #FFE500; /* Texto general amarillo neón */
+            line-height: 1.6;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4F8DFE; /* Azul neón */
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #FF5AF1; /* Rosa neón */
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            color: #FFE500;
+        }
+
+        h3 {
+            margin: 1.5rem 0 1rem 0;
+            color: #8B5CF6; /* Morado vibrante */
+        }
+
+        code {
+            background: #1E1E1E;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #00F7C2; /* Verde Aqua */
+        }
+
+        /* ===================================== SECCIONES DEMO ===================================== */
+        .demo-section {
+            background: #151826;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .demo-section h2 {
+            color: #FFE500; 
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        /* ===================================== SECCIÓN 1: ESTILOS DE BORDER ===================================== */
+        .border-styles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .border-box {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #4F8DFE, #8B5CF6);
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            border: 4px solid #FF5AF1;
+            transition: transform 0.3s ease;
+        }
+
+        .border-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .border-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .border-box p {
+            font-size: 0.85rem;
+            margin: 0.25rem 0;
+        }
+
+        /* Estilos de borde llamativos */
+        .border-solid { border: 4px solid #FF5AF1; }
+        .border-dashed { border: 4px dashed #00F7C2; }
+        .border-dotted { border: 4px dotted #FFE500; }
+        .border-double { border: 5px double #8B5CF6; }
+        .border-groove { border: 5px groove #4F8DFE; }
+        .border-ridge { border: 5px ridge #00F7C2; }
+        .border-inset { border: 5px inset #FF5AF1; }
+        .border-outset { border: 5px outset #FFE500; }
+
+        /* ===================================== SECCIÓN 2: BORDES INDIVIDUALES ===================================== */
+        .individual-borders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .border-top-only { border-top: 4px solid #4F8DFE; }
+        .border-bottom-only { border-bottom: 4px solid #00F7C2; }
+        .border-left-only { border-left: 4px solid #FF5AF1; }
+        .border-mixed {
+            border-top: 3px solid #4F8DFE;
+            border-bottom: 3px solid #FF5AF1;
+        }
+
+        /* ===================================== SECCIÓN 3: BORDER-RADIUS ===================================== */
+        .radius-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .radius-box {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            border: 3px solid white;
+            border-radius: 12px;
+        }
+
+        .radius-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .radius-small { border-radius: 5px; }
+        .radius-medium { border-radius: 15px; }
+        .radius-large { border-radius: 30px; }
+        .radius-pill { border-radius: 999px; }
+
+        /* ===================================== SECCIÓN 4: FORMAS ===================================== */
+        .shapes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .shape-container {
+            text-align: center;
+        }
+
+        .shape-container p {
+            margin: 1rem 0 0.5rem 0;
+            font-weight: 600;
+            color: #FFE500;
+        }
+
+        .shape {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #FF5AF1, #4F8DFE);
+            border: 4px solid #FFE500;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00F7C2, #4F8DFE);
+            border-color: #FF5AF1;
+        }
+
+        .rounded-square {
+            border-radius: 20px;
+            background: linear-gradient(135deg, #FFE500, #FF5AF1);
+            border-color: #4F8DFE;
+        }
+
+        .top-rounded {
+            border-radius: 50% 50% 0 0;
+            background: linear-gradient(135deg, #8B5CF6, #4F8DFE);
+            border-color: #00F7C2;
+        }
+
+        .leaf {
+            border-radius: 0 100% 0 100%;
+            background: linear-gradient(135deg, #FF5AF1, #8B5CF6);
+            border-color: #FFE500;
+        }
+
+        /* ===================================== SECCIÓN 5: BOTONES ===================================== */
+        .buttons-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0 2rem 0;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-filled {
+            background: linear-gradient(135deg, #FF5AF1, #4F8DFE);
+            color: white;
+            border: none;
+        }
+
+        .btn-filled:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 141, 254, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #00F7C2;
+            border: 2px solid #00F7C2;
+        }
+
+        .btn-outline:hover {
+            background: #00F7C2;
+            color: #0d0f1a;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #FFE500;
+            border: 2px solid transparent;
+        }
+
+        .btn-ghost:hover {
+            border-color: #FFE500;
+        }
+
+        .btn-border-grow {
+            background: #151826;
+            color: #FF5AF1;
+            border: 2px solid #FF5AF1;
+        }
+
+        .btn-border-grow:hover {
+            border-width: 4px;
+        }
+
+        .btn-border-spin {
+            background: #151826;
+            color: #00F7C2;
+            border: 3px dashed #00F7C2;
+            border-radius: 50px;
+        }
+
+        .btn-border-spin:hover {
+            border-style: solid;
+            transform: rotate(360deg);
+        }
+
+        .btn-slide-border {
+            background: #151826;
+            color: #FFE500;
+            border: none;
+            border-bottom: 3px solid transparent;
+        }
+
+        .btn-slide-border:hover {
+            border-bottom-color: #FFE500;
+        }
+
+        /* ===================================== SECCIÓN 6: CARDS ===================================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #4F8DFE, #8B5CF6);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            border: 3px solid #FF5AF1;
+            color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            color: #FFE500;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            margin: 0.25rem 0;
+        }
+
+        .card-simple {}
+        .card-thick {}
+        .card-accent {}
+        .card-dashed {}
+
+        /* ===================================== SECCIÓN 7: AVATARES ===================================== */
+        .avatars-demo {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .avatar-container {
+            text-align: center;
+        }
+
+        .avatar-container p {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #FFE500;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border: 4px solid #FF5AF1;
+            border-radius: 50%;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        .avatar-circle { border-radius: 50%; }
+        .avatar-rounded { border-radius: 20px; }
+        .avatar-square { border-radius: 0; }
+
+        /* ===================================== SECCIÓN 8: EFECTOS AVANZADOS ===================================== */
+        .advanced-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .advanced-box {
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: #FFE500;
+        }
+
+        .advanced-box p {
+            margin: 0.5rem 0;
+        }
+
+        .gradient-border {
+            background:
+                linear-gradient(#151826, #151826) padding-box,
+                linear-gradient(135deg, #FF5AF1, #4F8DFE) border-box;
+            border: 4px solid transparent;
+        }
+
+        .glow-border {
+            border: 3px solid #00F7C2;
+            box-shadow: 0 0 20px rgba(0, 247, 194, 0.6);
+        }
+
+        .glow-border:hover {
+            box-shadow: 0 0 35px rgba(79, 141, 254, 0.8);
+        }
+
+        .animated-border {
+            border: 3px solid #FFE500;
+        }
+
+        .animated-border:hover {
+            border-color: #FF5AF1;
+        }
+
+        /* ===================================== CÓDIGO DE REFERENCIA ===================================== */
+        .code-section {
+            background: #111827;
+            color: #ecf0f1;
+        }
+
+        .code-section h2 {
+            color: #4F8DFE;
+        }
+
+        pre {
+            background: #1f2933;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        pre code {
+            color: #00F7C2;
+            font-size: 0.95rem;
+            background: none;
+        }
+
+        /* ===================================== RESPONSIVE ===================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .border-styles-grid,
+            .radius-grid,
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons-demo {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bordes y Border-Rodrigo Brailco</h1>
+        <p class="subtitle">Dominando las propiedades de border en CSS</p>
+
+        <!-- Sección 1: Estilos de Border -->
+        <section class="demo-section">
+            <h2>1. Estilos de Border</h2>
+            <div class="border-styles-grid">
+                <div class="border-box border-solid">
+                    <strong>solid</strong>
+                    <p>border: 3px solid #3498db;</p>
+                </div>
+                
+                <div class="border-box border-dashed">
+                    <strong>dashed</strong>
+                    <p>border: 3px dashed #2ecc71;</p>
+                </div>
+                
+                <div class="border-box border-dotted">
+                    <strong>dotted</strong>
+                    <p>border: 3px dotted #e74c3c;</p>
+                </div>
+                
+                <div class="border-box border-double">
+                    <strong>double</strong>
+                    <p>border: 5px double #9b59b6;</p>
+                </div>
+                
+                <div class="border-box border-groove">
+                    <strong>groove</strong>
+                    <p>border: 5px groove #34495e;</p>
+                </div>
+                
+                <div class="border-box border-ridge">
+                    <strong>ridge</strong>
+                    <p>border: 5px ridge #1abc9c;</p>
+                </div>
+                
+                <div class="border-box border-inset">
+                    <strong>inset</strong>
+                    <p>border: 5px inset #e67e22;</p>
+                </div>
+                
+                <div class="border-box border-outset">
+                    <strong>outset</strong>
+                    <p>border: 5px outset #f39c12;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Border por Lados -->
+        <section class="demo-section">
+            <h2>2. Bordes Individuales por Lado</h2>
+            <div class="individual-borders-grid">
+                <div class="border-box border-top-only">
+                    <strong>Solo arriba</strong>
+                    <p>border-top: 4px solid #3498db;</p>
+                </div>
+                
+                <div class="border-box border-bottom-only">
+                    <strong>Solo abajo</strong>
+                    <p>border-bottom: 4px solid #2ecc71;</p>
+                </div>
+                
+                <div class="border-box border-left-only">
+                    <strong>Solo izquierda</strong>
+                    <p>border-left: 4px solid #e74c3c;</p>
+                </div>
+                
+                <div class="border-box border-mixed">
+                    <strong>Múltiples lados</strong>
+                    <p>border-top: 3px solid blue;</p>
+                    <p>border-bottom: 3px solid red;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Border-Radius -->
+        <section class="demo-section">
+            <h2>3. Border-Radius (Esquinas Redondeadas)</h2>
+            <div class="radius-grid">
+                <div class="radius-box radius-small">
+                    <strong>Pequeño</strong>
+                    <p>border-radius: 5px;</p>
+                </div>
+                
+                <div class="radius-box radius-medium">
+                    <strong>Mediano</strong>
+                    <p>border-radius: 15px;</p>
+                </div>
+                
+                <div class="radius-box radius-large">
+                    <strong>Grande</strong>
+                    <p>border-radius: 30px;</p>
+                </div>
+                
+                <div class="radius-box radius-pill">
+                    <strong>Pill (Pastilla)</strong>
+                    <p>border-radius: 999px;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Formas con Border-Radius -->
+        <section class="demo-section">
+            <h2>4. Creando Formas</h2>
+            <div class="shapes-grid">
+                <div class="shape-container">
+                    <div class="shape circle"></div>
+                    <p><strong>Círculo</strong></p>
+                    <code>border-radius: 50%;</code>
+                </div>
+                
+                <div class="shape-container">
+                    <div class="shape rounded-square"></div>
+                    <p><strong>Cuadrado Redondeado</strong></p>
+                    <code>border-radius: 20px;</code>
+                </div>
+                
+                <div class="shape-container">
+                    <div class="shape top-rounded"></div>
+                    <p><strong>Top Redondeado</strong></p>
+                    <code>border-radius: 50% 50% 0 0;</code>
+                </div>
+                
+                <div class="shape-container">
+                    <div class="shape leaf"></div>
+                    <p><strong>Hoja</strong></p>
+                    <code>border-radius: 0 100% 0 100%;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Botones con Bordes -->
+        <section class="demo-section">
+            <h2>5. Botones con Diferentes Estilos de Borde</h2>
+            
+            <h3>Botones Sólidos</h3>
+            <div class="buttons-demo">
+                <button class="btn btn-filled">Filled</button>
+                <button class="btn btn-outline">Outline</button>
+                <button class="btn btn-ghost">Ghost</button>
+            </div>
+
+            <h3>Botones con Efectos</h3>
+            <div class="buttons-demo">
+                <button class="btn btn-border-grow">Border Grow</button>
+                <button class="btn btn-border-spin">Border Spin</button>
+                <button class="btn btn-slide-border">Slide Border</button>
+            </div>
+        </section>
+
+        <!-- Sección 6: Cards con Bordes -->
+        <section class="demo-section">
+            <h2>6. Cards con Estilos de Borde</h2>
+            <div class="cards-grid">
+                <div class="card card-simple">
+                    <h3>Card Simple</h3>
+                    <p>border: 1px solid #e0e0e0;</p>
+                    <p>border-radius: 8px;</p>
+                </div>
+                
+                <div class="card card-thick">
+                    <h3>Card con Borde Grueso</h3>
+                    <p>border: 3px solid #3498db;</p>
+                    <p>border-radius: 12px;</p>
+                </div>
+                
+                <div class="card card-accent">
+                    <h3>Card con Acento</h3>
+                    <p>border-left: 5px solid #2ecc71;</p>
+                    <p>border-radius: 4px;</p>
+                </div>
+                
+                <div class="card card-dashed">
+                    <h3>Card con Borde Punteado</h3>
+                    <p>border: 2px dashed #9b59b6;</p>
+                    <p>border-radius: 10px;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 7: Avatares -->
+        <section class="demo-section">
+            <h2>7. Avatares y Badges</h2>
+            <div class="avatars-demo">
+                <div class="avatar-container">
+                    <div class="avatar avatar-circle">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Avatar">
+                    </div>
+                    <p>Circular</p>
+                </div>
+                
+                <div class="avatar-container">
+                    <div class="avatar avatar-rounded">
+                        <img src="https://i.pravatar.cc/100?img=2" alt="Avatar">
+                    </div>
+                    <p>Redondeado</p>
+                </div>
+                
+                <div class="avatar-container">
+                    <div class="avatar avatar-square">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Avatar">
+                    </div>
+                    <p>Cuadrado</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 8: Border con Gradientes (Trucos) -->
+        <section class="demo-section code-section">
+            <h2>📝 Referencia Rápida de Borders</h2>
+            <pre><code>/* Border completo (width style color) */
+border: 2px solid #3498db;
+
+/* Bordes individuales */
+border-top: 1px solid black;
+border-right: 2px dashed blue;
+border-bottom: 3px dotted red;
+border-left: 4px double green;
+
+/* Border-radius */
+border-radius: 10px; /* Todos los lados */
+border-radius: 10px 20px 30px 40px; /* TL TR BR BL */
+border-radius: 50%; /* Círculo */
+
+/* Solo algunas esquinas */
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+
+/* Estilos: solid | dashed | dotted | double | groove | ridge | inset | outset | none */</code></pre>
+        </section>
+    </div>
+</body>
+</html>
