@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Brailco - El Futuro del Diseño Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de progreso -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="container">
+            <div class="header-content">
+                <a href="#inicio" class="site-logo">
+                    <i class="fas fa-code"></i>
+                    <span>Rodrigo Brailco</span>
+                </a>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="#inicio" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#articulos" class="nav-link"><i class="fas fa-newspaper"></i> Artículos</a></li>
+                        <li><a href="#sobre-mi" class="nav-link"><i class="fas fa-user"></i> Sobre Mí</a></li>
+                        <li><a href="#contacto" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <button class="search-toggle" id="searchToggle">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="notifications-btn" id="notificationsBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                </nav>
+
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Búsqueda Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-content">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <form class="search-form-big">
+                <input type="text" placeholder="¿Qué estás buscando?" id="searchInput">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <h4>Sugerencias populares</h4>
+                <div class="suggestions-list">
+                    <a href="#">CSS Grid</a>
+                    <a href="#">JavaScript</a>
+                    <a href="#">React</a>
+                    <a href="#">Responsive Design</a>
+                    <a href="#">Performance</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel de Notificaciones -->
+    <div class="notifications-panel" id="notificationsPanel">
+        <div class="notifications-header">
+            <h3><i class="fas fa-bell"></i> Notificaciones</h3>
+            <button class="mark-all-read">Marcar todas como leídas</button>
+        </div>
+        <div class="notifications-list">
+            <div class="notification-item unread">
+                <i class="fas fa-comment notification-icon"></i>
+                <div class="notification-content">
+                    <p><strong>Nuevo comentario</strong> en tu artículo</p>
+                    <span class="notification-time">Hace 5 minutos</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <i class="fas fa-heart notification-icon"></i>
+                <div class="notification-content">
+                    <p><strong>45 personas</strong> les gustó tu artículo</p>
+                    <span class="notification-time">Hace 1 hora</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <i class="fas fa-user-plus notification-icon"></i>
+                <div class="notification-content">
+                    <p><strong>Nuevo seguidor</strong> te está siguiendo</p>
+                    <span class="notification-time">Hace 3 horas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="#inicio"><i class="fas fa-home"></i> Inicio</a>
+                <span>/</span>
+                <a href="#articulos">Artículos</a>
+                <span>/</span>
+                <span class="current">El Futuro del Diseño Web</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-background">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">✨ Nuevo Artículo</span>
+                <h1 class="hero-title">El Futuro del Diseño Web: Tendencias 2025</h1>
+                <p class="hero-description">Descubre las tendencias más innovadoras que están transformando la manera en que diseñamos experiencias digitales</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-eye"></i>
+                        <span>2.4k vistas</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span>5 min lectura</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>25 Nov 2025</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('article-content').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-book-open"></i> Leer Artículo
+                    </button>
+                    <button class="btn-secondary" id="bookmarkBtn">
+                        <i class="far fa-bookmark"></i> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor Principal -->
+    <div class="page-container">
+        <main class="main-content">
+            <!-- Artículo -->
+            <article class="article" id="article-content">
+                <div class="article-header">
+                    <div class="author-meta">
+                        <img src="images/foto_perfil.jpeg" alt="Rodrigo Brailco" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Rodrigo Brailco</h4>
+                            <p>Desarrollador Frontend Senior • <time>25 Nov 2025</time></p>
+                        </div>
+                    </div>
+                    <div class="article-actions">
+                        <button class="action-btn" title="Compartir">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button class="action-btn" title="Me gusta">
+                            <i class="far fa-heart"></i>
+                            <span>124</span>
+                        </button>
+                        <button class="action-btn" title="Comentarios">
+                            <i class="far fa-comment"></i>
+                            <span>32</span>
+                        </button>
+                    </div>
+                </div>
+
+                <figure class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=600&fit=crop" alt="Diseño web moderno">
+                    <figcaption><i class="fas fa-camera"></i> El diseño web evoluciona constantemente</figcaption>
+                </figure>
+
+                <div class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Contenido</h3>
+                    <ul>
+                        <li><a href="#tendencias">Tendencias Principales</a></li>
+                        <li><a href="#performance">Importancia del Performance</a></li>
+                        <li><a href="#herramientas">Herramientas Esenciales</a></li>
+                        <li><a href="#conclusion">Conclusión</a></li>
+                    </ul>
+                </div>
+
+                <div class="article-content">
+                    <p class="lead">El diseño web ha evolucionado dramáticamente en los últimos años, pasando de páginas estáticas a experiencias interactivas y dinámicas que se adaptan a cualquier dispositivo.</p>
+
+                    <p>En este artículo exploraremos las tendencias más importantes que están definiendo el futuro del diseño web en 2025.</p>
+
+                    <div class="info-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <h4>¿Sabías que?</h4>
+                            <p>El 94% de las primeras impresiones están relacionadas con el diseño web. Tienes solo 50 milisegundos para causar una buena impresión.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="tendencias"><i class="fas fa-chart-line"></i> Tendencias Principales</h2>
+                    
+                    <div class="trend-grid">
+                        <div class="trend-card">
+                            <div class="trend-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Diseño Responsive Avanzado</h3>
+                            <p>Adaptación perfecta a todos los dispositivos</p>
+                        </div>
+                        <div class="trend-card">
+                            <div class="trend-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <h3>Dark Mode</h3>
+                            <p>Modo oscuro como estándar</p>
+                        </div>
+                        <div class="trend-card">
+                            <div class="trend-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3>Micro-animaciones</h3>
+                            <p>Interacciones fluidas y naturales</p>
+                        </div>
+                        <div class="trend-card">
+                            <div class="trend-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                                <i class="fas fa-universal-access"></i>
+                            </div>
+                            <h3>Accesibilidad</h3>
+                            <p>Diseño inclusivo para todos</p>
+                        </div>
+                    </div>
+
+                    <h2 id="performance"><i class="fas fa-tachometer-alt"></i> La Importancia del Performance</h2>
+
+                    <div class="stats-showcase">
+                        <div class="stat-box">
+                            <div class="stat-number">3s</div>
+                            <div class="stat-label">Tiempo máximo de carga</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">53%</div>
+                            <div class="stat-label">Usuarios que abandonan</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">+70%</div>
+                            <div class="stat-label">Mejora en conversión</div>
+                        </div>
+                    </div>
+
+                    <blockquote class="quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>El buen diseño es tan poco diseño como sea posible. Un buen diseño es innovador, hace útil un producto, es estético y comprensible.</p>
+                        <footer>— Dieter Rams, Diseñador Industrial</footer>
+                    </blockquote>
+
+                    <h2 id="herramientas"><i class="fas fa-tools"></i> Herramientas Esenciales</h2>
+
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-figma"></i>
+                            <h4>Figma</h4>
+                            <p>Diseño colaborativo</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-code"></i>
+                            <h4>VS Code</h4>
+                            <p>Editor de código</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-chrome"></i>
+                            <h4>DevTools</h4>
+                            <p>Debugging</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <h4>Lighthouse</h4>
+                            <p>Performance</p>
+                        </div>
+                    </div>
+
+                    <h2 id="conclusion"><i class="fas fa-flag-checkered"></i> Conclusión</h2>
+                    
+                    <p>El diseño web continuará evolucionando, pero los principios fundamentales permanecen: crear experiencias útiles, accesibles y agradables para todos los usuarios.</p>
+
+                    <div class="cta-box">
+                        <h3><i class="fas fa-comments"></i> ¿Qué opinas?</h3>
+                        <p>Comparte tus pensamientos en los comentarios</p>
+                        <button class="btn-primary" id="openCommentsBtn">
+                            <i class="fas fa-comment-dots"></i> Ver Comentarios
+                        </button>
+                    </div>
+                </div>
+
+                <div class="article-footer">
+                    <div class="tags">
+                        <span class="tag">Diseño Web</span>
+                        <span class="tag">Desarrollo</span>
+                        <span class="tag">Tendencias</span>
+                        <span class="tag">UX/UI</span>
+                    </div>
+                </div>
+
+                <!-- Sección de Autor -->
+                <div class="author-section" id="sobre-mi">
+                    <div class="author-card">
+                        <img src="images/foto_perfil.jpeg" alt="Rodrigo Brailco">
+                        <div class="author-details">
+                            <h3>Rodrigo Brailco</h3>
+                            <p class="author-role">Desarrollador Frontend Senior</p>
+                            <p class="author-bio">Desarrollador frontend apasionado por crear experiencias web modernas y accesibles. 5+ años de experiencia en diseño y desarrollo web.</p>
+                            <div class="author-stats">
+                                <div><strong>48</strong> Artículos</div>
+                                <div><strong>12k</strong> Lectores</div>
+                                <div><strong>5+</strong> Años</div>
+                            </div>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sección de Artículos Relacionados -->
+            <section class="related-articles" id="articulos">
+                <h2><i class="fas fa-newspaper"></i> Artículos Relacionados</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop" alt="">
+                        <div class="article-card-content">
+                            <span class="category">JavaScript</span>
+                            <h3>CSS Grid vs Flexbox</h3>
+                            <p>Cuándo usar cada uno para layouts modernos</p>
+                            <div class="article-meta-small">
+                                <span><i class="far fa-eye"></i> 3.2k</span>
+                                <span><i class="far fa-clock"></i> 4 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop" alt="">
+                        <div class="article-card-content">
+                            <span class="category">Performance</span>
+                            <h3>Optimización de Imágenes</h3>
+                            <p>Técnicas para mejorar el rendimiento web</p>
+                            <div class="article-meta-small">
+                                <span><i class="far fa-eye"></i> 2.8k</span>
+                                <span><i class="far fa-clock"></i> 6 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop" alt="">
+                        <div class="article-card-content">
+                            <span class="category">Accesibilidad</span>
+                            <h3>Guía de Accesibilidad Web</h3>
+                            <p>Crea sitios accesibles para todos</p>
+                            <div class="article-meta-small">
+                                <span><i class="far fa-eye"></i> 2.5k</span>
+                                <span><i class="far fa-clock"></i> 8 min</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- SECCIÓN DE CONTACTO -->
+<section id="contacto" class="contact-section">
+    <div class="container">
+        <h2 class="contact-title"><i class="fas fa-envelope"></i> Contacto</h2>
+
+        <p class="contact-description">
+            Puedes comunicarte conmigo a través de los siguientes medios:
+        </p>
+
+        <div class="contact-info-box">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email:</span>
+                <a href="mailto:rodrigobrailco85@gmail.com">rodrigobrailco85@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>Teléfono:</span>
+                <a href="tel:78050261">78050261</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="widget newsletter-widget">
+                <h3><i class="fas fa-envelope"></i> Newsletter</h3>
+                <p>Recibe los mejores artículos cada semana</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="tu@email.com" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Suscribirse</button>
+                </form>
+            </div>
+
+            <div class="widget">
+                <h3><i class="fas fa-fire"></i> Más Populares</h3>
+                <div class="popular-list">
+                    <a href="#" class="popular-item">
+                        <span class="number">1</span>
+                        <div>
+                            <h4>React 19: Novedades</h4>
+                            <span>5.2k vistas</span>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="number">2</span>
+                        <div>
+                            <h4>CSS Grid Completo</h4>
+                            <span>4.8k vistas</span>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="number">3</span>
+                        <div>
+                            <h4>JavaScript ES2024</h4>
+                            <span>4.2k vistas</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3><i class="fas fa-folder"></i> Categorías</h3>
+                <div class="categories">
+                    <a href="#"><i class="fas fa-code"></i> Desarrollo <span>24</span></a>
+                    <a href="#"><i class="fas fa-paint-brush"></i> Diseño <span>18</span></a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Mobile <span>12</span></a>
+                    <a href="#"><i class="fas fa-lightbulb"></i> Tutoriales <span>32</span></a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal de Contacto -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-envelope"></i> Contáctame</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Nombre</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Asunto</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-comment"></i> Mensaje</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fas fa-code"></i> DevBlog</h3>
+                    <p>Tu fuente de conocimiento sobre desarrollo web moderno</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#articulos">Artículos</a></li>
+                        <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DevBlog. Hecho con <i class="fas fa-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
