@@ -1,0 +1,372 @@
+/* ================================
+   VARIABLES DE COLOR (NUEVA PALETA)
+   ================================ */
+:root {
+    --bg-main: #0b1220;
+    --bg-secondary: #111827;
+    --card-bg: #0f172a;
+
+    --primary: #22d3ee;      /* cyan */
+    --secondary: #4ade80;    /* green */
+    --accent: #60a5fa;       /* blue */
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+}
+
+/* ================================
+   RESET GENERAL
+   ================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+   BODY
+   ================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #020617, var(--bg-main));
+    color: var(--text-main);
+}
+
+/* ================================
+   CONTAINER / SECTION
+   ================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 4rem 2rem;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+    animation: fadeInDown 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    animation: fadeInUp 1s ease 0.3s backwards;
+}
+
+/* Animaciones Hero */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: 4rem;
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    border-right: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
+    transform: rotate(45deg);
+    margin: 1rem auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-20px) rotate(45deg); }
+}
+
+/* ================================
+   LOADERS
+   ================================ */
+.loaders {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255,255,255,0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Dots */
+.dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: dotPulse 1.4s infinite both;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+    0%,80%,100% { transform: scale(0.6); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* Pulse Ring */
+.pulse-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(34, 211, 238, 0.4);
+    animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* ================================
+   CARDS
+   ================================ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.card {
+    height: 300px;
+    background: linear-gradient(135deg, var(--card-bg), var(--bg-secondary));
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.08);
+}
+
+/* Flip Card */
+.card-flip { perspective: 1000px; }
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s;
+}
+
+.card-back {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #020617;
+    transform: rotateY(180deg);
+}
+
+.card-flip:hover .card-front { transform: rotateY(-180deg); }
+.card-flip:hover .card-back { transform: rotateY(0); }
+
+/* Slide Overlay */
+.card-slide img,
+.card-zoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay,
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(2,6,23,0.9), transparent);
+    transform: translateY(100%);
+    transition: transform 0.4s;
+}
+
+.card-slide:hover .card-overlay { transform: translateY(0); }
+
+/* Zoom */
+.card-zoom:hover img { transform: scale(1.2); }
+
+/* ================================
+   SCROLL ANIMATIONS
+   ================================ */
+.animate-on-scroll {
+    opacity: 0;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+}
+
+.animate-on-scroll.visible { opacity: 1; }
+
+.fade-in.visible { animation: fadeIn 1s forwards; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.slide-in-left.visible {
+    animation: slideInLeft 0.8s forwards;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right.visible {
+    animation: slideInRight 0.8s forwards;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.zoom-in.visible {
+    animation: zoomIn 0.8s forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ================================
+   BUTTONS
+   ================================ */
+.buttons-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple,
+.btn-glow,
+.btn-bounce {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #020617;
+}
+
+.btn-slide {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary);
+    left: -100%;
+    transition: left 0.3s;
+    z-index: -1;
+}
+
+.btn-slide:hover { color: #020617; }
+.btn-slide:hover::before { left: 0; }
+
+.btn-glow:hover {
+    box-shadow: 0 0 20px rgba(34,211,238,0.8),
+                0 0 40px rgba(34,211,238,0.6);
+}
+
+/* ================================
+   TEXT EFFECTS
+   ================================ */
+.glitch {
+    font-size: 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 var(--primary);
+}
+
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 2px 0 var(--secondary);
+}
+
+.gradient-text {
+    font-size: 4rem;
+    text-align: center;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s infinite;
+}
+
+@keyframes gradientShift {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}

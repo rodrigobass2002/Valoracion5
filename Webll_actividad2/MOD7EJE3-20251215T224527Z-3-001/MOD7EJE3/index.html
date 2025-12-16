@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería Masonry</title>
+
+<style>
+/* =========================================
+   RESET
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   BODY – FONDO LLAMATIVO
+========================================= */
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #4f00ff,
+        #7f00ff,
+        #00c6ff
+    );
+    background-size: 300% 300%;
+    animation: gradientMove 14s ease infinite;
+
+    padding: 24px;
+}
+
+@keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   HERO / ENCABEZADO
+========================================= */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.hero h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* =========================================
+   GALERÍA MASONRY ORDENADA
+========================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-auto-rows: 12px;
+    grid-auto-flow: dense;
+    gap: 20px;
+}
+
+/* =========================================
+   TARJETAS
+========================================= */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.18),
+        0 6px 12px rgba(0,0,0,0.12);
+
+    grid-row: span 28;
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 22px 40px rgba(0,0,0,0.30),
+        0 12px 20px rgba(0,0,0,0.20);
+}
+
+/* Variantes */
+.card-tall {
+    grid-row: span 36;
+}
+
+.card-wide {
+    grid-column: span 2;
+    grid-row: span 28;
+}
+
+.card-big {
+    grid-column: span 2;
+    grid-row: span 36;
+}
+
+/* =========================================
+   IMÁGENES
+========================================= */
+figure {
+    margin: 0;
+    flex-grow: 1;
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================================
+   CONTENIDO DE LA TARJETA
+========================================= */
+.card-content {
+    padding: 16px;
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.96),
+        rgba(255,255,255,0.85)
+    );
+    border-top: 3px solid #7f00ff;
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3b0764;
+    margin-bottom: 4px;
+}
+
+.card-content p {
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.4;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+<header class="hero">
+    <h1>Galería Masonry</h1>
+    <h2>Jesus Rodrigo Flores Brailco</h2>
+    <p>Explora nuestra colección visual</p>
+</header>
+
+<!-- GALERÍA -->
+<main class="gallery-grid">
+    
+    <article class="card">
+        <figure>
+            <img src="https://picsum.photos/id/10/400/400" alt="Bosque">
+        </figure>
+        <div class="card-content">
+            <h3>Naturaleza</h3>
+            <p>Vista del bosque.</p>
+        </div>
+    </article>
+
+    <article class="card card-tall">
+        <figure>
+            <img src="https://picsum.photos/id/15/400/600" alt="Cascada">
+        </figure>
+        <div class="card-content">
+            <h3>Aventura</h3>
+            <p>Explorando cascadas altas.</p>
+        </div>
+    </article>
+
+    <article class="card card-wide">
+        <figure>
+            <img src="https://picsum.photos/id/28/600/400" alt="Paisaje">
+        </figure>
+        <div class="card-content">
+            <h3>Horizonte</h3>
+            <p>Un paisaje amplio para probar el grid.</p>
+        </div>
+    </article>
+
+    <article class="card">
+        <figure>
+            <img src="https://picsum.photos/id/40/400/400" alt="Gato">
+        </figure>
+        <div class="card-content">
+            <h3>Mascotas</h3>
+            <p>Un gato curioso.</p>
+        </div>
+    </article>
+
+    <article class="card card-big">
+        <figure>
+            <img src="https://picsum.photos/id/56/800/800" alt="Ciudad">
+        </figure>
+        <div class="card-content">
+            <h3>Urbanismo</h3>
+            <p>La ciudad nunca duerme.</p>
+        </div>
+    </article>
+
+    <article class="card card-tall">
+        <figure>
+            <img src="https://picsum.photos/id/88/400/600" alt="Arquitectura">
+        </figure>
+        <div class="card-content">
+            <h3>Diseño</h3>
+            <p>Estructuras complejas.</p>
+        </div>
+    </article>
+
+</main>
+
+</body>
+</html>

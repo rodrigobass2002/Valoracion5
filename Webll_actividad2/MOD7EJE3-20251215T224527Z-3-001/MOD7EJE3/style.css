@@ -1,0 +1,133 @@
+/* =========================================
+   RESET BÁSICO
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   BODY – FONDO LLAMATIVO
+   ========================================= */
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+
+    /* Fondo vibrante animado */
+    background: linear-gradient(
+        135deg,
+        #7f00ff,
+        #e100ff,
+        #00c6ff
+    );
+    background-size: 300% 300%;
+    animation: gradientMove 14s ease infinite;
+
+    padding: 24px;
+}
+
+@keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =======================================================
+   CONTENEDOR MAESTRO (GRID MASONRY ORDENADO)
+   ======================================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-auto-rows: 12px;
+    grid-auto-flow: dense;
+    gap: 20px;
+}
+
+/* =======================================================
+   TARJETAS
+   ======================================================= */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.18),
+        0 6px 12px rgba(0,0,0,0.12);
+
+    grid-row: span 28;   /* base uniforme */
+
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover elegante */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 22px 40px rgba(0,0,0,0.30),
+        0 12px 20px rgba(0,0,0,0.20);
+}
+
+/* =======================================================
+   VARIANTES CONTROLADAS (ORDEN VISUAL)
+   ======================================================= */
+.card-tall {
+    grid-row: span 36;
+}
+
+.card-wide {
+    grid-column: span 2;
+    grid-row: span 28;
+}
+
+.card-big {
+    grid-column: span 2;
+    grid-row: span 36;
+}
+
+/* =======================================================
+   IMÁGENES
+   ======================================================= */
+figure {
+    margin: 0;
+    flex-grow: 1;
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =======================================================
+   CONTENIDO DE LA TARJETA
+   ======================================================= */
+.card-content {
+    padding: 16px;
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.96),
+        rgba(255,255,255,0.85)
+    );
+    border-top: 3px solid #7f00ff;
+}
+
+/* Texto */
+.card-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3b0764;
+    margin-bottom: 4px;
+}
+
+.card-content p {
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.4;
+}
