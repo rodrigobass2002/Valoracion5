@@ -1,0 +1,261 @@
+/* =====================================
+   RESET Y VARIABLES
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ===== PALETA TECNOLÓGICA ===== */
+    --color-positive: #00e676;
+    --color-negative: #ff1744;
+    --color-neutral: #e5e7eb;
+
+    --color-bg-positive: rgba(0, 230, 118, 0.15);
+    --color-bg-negative: rgba(255, 23, 68, 0.15);
+    --color-bg-neutral: rgba(255, 255, 255, 0.08);
+
+    /* ===== BOTONES ===== */
+    --btn-success: linear-gradient(135deg, #00e676, #1de9b6);
+    --btn-danger: linear-gradient(135deg, #ff1744, #ff5252);
+    --btn-secondary: linear-gradient(135deg, #6366f1, #22d3ee);
+
+    /* ===== ESPACIADO ===== */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* ===== TRANSICIÓN ===== */
+    --transition: all 0.3s ease;
+}
+
+/* =====================================
+   BODY – FONDO FUTURISTA
+===================================== */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #020617, #0b1220);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+    color: white;
+}
+
+/* =====================================
+   CONTENEDOR PRINCIPAL
+===================================== */
+
+.container {
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(16px);
+    padding: var(--spacing-xl);
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* =====================================
+   TÍTULO
+===================================== */
+
+.titulo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xl);
+
+    background: linear-gradient(135deg, #00e5ff, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =====================================
+   DISPLAY DEL CONTADOR
+===================================== */
+
+.contador-display {
+    background: rgba(15, 23, 42, 0.85);
+    padding: var(--spacing-xl);
+    border-radius: 18px;
+    margin-bottom: var(--spacing-xl);
+    box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.numero {
+    font-size: 5rem;
+    font-weight: 800;
+    transition: var(--transition);
+}
+
+/* Estados */
+.numero.positivo {
+    color: var(--color-positive);
+    animation: pulso 0.3s ease;
+}
+
+.numero.negativo {
+    color: var(--color-negative);
+    animation: pulso 0.3s ease;
+}
+
+.numero.neutro {
+    color: var(--color-neutral);
+}
+
+/* Fondo dinámico */
+.contador-display.bg-positivo {
+    background: var(--color-bg-positive);
+}
+
+.contador-display.bg-negativo {
+    background: var(--color-bg-negative);
+}
+
+.contador-display.bg-neutro {
+    background: rgba(15, 23, 42, 0.85);
+}
+
+/* Pulso */
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* =====================================
+   BOTONES PRINCIPALES
+===================================== */
+
+.botones {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #020617;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Tipos */
+.btn-success {
+    background: var(--btn-success);
+}
+
+.btn-danger {
+    background: var(--btn-danger);
+}
+
+.btn-secondary {
+    background: var(--btn-secondary);
+}
+
+/* =====================================
+   BOTONES BONUS
+===================================== */
+
+.botones-bonus {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-small {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #020617;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-success-light {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+}
+
+.btn-danger-light {
+    background: linear-gradient(135deg, #fb7185, #f43f5e);
+}
+
+.btn-small:hover {
+    transform: scale(1.08);
+}
+
+/* =====================================
+   INFORMACIÓN
+===================================== */
+
+.info {
+    padding: var(--spacing-md);
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid #38bdf8;
+}
+
+.info p {
+    color: #cbd5f5;
+    font-size: 0.95rem;
+}
+
+.info strong {
+    color: #e5e7eb;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .titulo {
+        font-size: 1.6rem;
+    }
+
+    .numero {
+        font-size: 3.5rem;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .btn {
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,275 @@
+/* ================================
+   RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+   BODY – FONDO TECNOLÓGICO
+================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background: radial-gradient(circle at top, #0f172a, #020617);
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    color: #e5e7eb;
+}
+
+/* ================================
+   CONTENEDOR
+================================ */
+.container {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ================================
+   FORMULARIO (GLASSMORPHISM)
+================================ */
+.form-wrapper {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(18px);
+    padding: 2.5rem;
+    border-radius: 22px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+}
+
+/* ================================
+   TÍTULOS
+================================ */
+h1 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #c7d2fe;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* ================================
+   FORM GROUP
+================================ */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ================================
+   INPUTS
+================================ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.9rem;
+    background: rgba(30, 41, 59, 0.9);
+    border: 2px solid rgba(148, 163, 184, 0.25);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+/* Estados */
+input.valid {
+    border-color: #22c55e;
+}
+
+input.invalid {
+    border-color: #ef4444;
+}
+
+/* ================================
+   ERRORES Y ÉXITO
+================================ */
+.error-message {
+    display: none;
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+.success-icon {
+    position: absolute;
+    right: 1rem;
+    top: 2.8rem;
+    color: #22c55e;
+    font-size: 1.2rem;
+    display: none;
+    font-weight: bold;
+}
+
+.form-group.valid .success-icon {
+    display: block;
+}
+
+/* ================================
+   PASSWORD REQUIREMENTS
+================================ */
+.password-requirements {
+    margin-top: 0.8rem;
+    padding: 0.9rem;
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.requirement {
+    margin: 0.3rem 0;
+    color: #cbd5f5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.req-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.requirement.met {
+    color: #22c55e;
+}
+
+.requirement.met .req-icon {
+    border-color: #22c55e;
+    background: #22c55e;
+    color: #020617;
+}
+
+.requirement.met .req-icon::before {
+    content: '✓';
+    font-size: 10px;
+}
+
+/* ================================
+   CHECKBOX
+================================ */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    accent-color: #38bdf8;
+    transform: scale(1.2);
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    color: #cbd5f5;
+    cursor: pointer;
+}
+
+/* ================================
+   BOTÓN SUBMIT
+================================ */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #38bdf8, #7c3aed);
+    color: #020617;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.2rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.5);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #475569;
+}
+
+/* ================================
+   RESUMEN
+================================ */
+.form-summary {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(34, 197, 94, 0.15);
+    border-radius: 14px;
+    border-left: 4px solid #22c55e;
+    display: none;
+}
+
+.form-summary.show {
+    display: block;
+}
+
+.form-summary h3 {
+    color: #22c55e;
+    margin-bottom: 0.5rem;
+}
+
+.form-summary p {
+    color: #cbd5f5;
+    font-size: 0.9rem;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+    .form-wrapper {
+        padding: 1.6rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}

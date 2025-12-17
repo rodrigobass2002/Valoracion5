@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+   BODY – FONDO MODERNO
+================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #e5e7eb;
+}
+
+/* ================================
+   CONTENEDOR
+================================ */
+.container {
+    max-width: 620px;
+    width: 100%;
+}
+
+/* ================================
+   TARJETA PRINCIPAL
+================================ */
+.clock-card {
+    background: rgba(15, 23, 42, 0.85);
+    padding: 3rem;
+    border-radius: 28px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+    text-align: center;
+    backdrop-filter: blur(18px);
+    margin-bottom: 2rem;
+}
+
+/* ================================
+   SALUDO
+================================ */
+.greeting {
+    font-size: 1.9rem;
+    color: #38bdf8;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease;
+}
+
+/* ================================
+   HORA
+================================ */
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.2rem 0;
+}
+
+.time {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #e0f2fe;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.period {
+    font-size: 2.2rem;
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+/* ================================
+   FECHA
+================================ */
+.date {
+    font-size: 1.3rem;
+    color: #cbd5f5;
+    margin-bottom: 2rem;
+}
+
+/* ================================
+   BOTONES
+================================ */
+.controls {
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 1rem 2.2rem;
+    background: linear-gradient(135deg, #38bdf8, #7c3aed);
+    color: #020617;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.45);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.6);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* ================================
+   ZONA HORARIA
+================================ */
+.timezone-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+}
+
+.label {
+    font-weight: 600;
+}
+
+#timezone {
+    font-family: 'Courier New', monospace;
+    color: #38bdf8;
+}
+
+/* ================================
+   ESTADÍSTICAS
+================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: rgba(15, 23, 42, 0.85);
+    padding: 1.6rem;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(148, 163, 184, 0.12);
+    backdrop-filter: blur(14px);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.stat-icon {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #38bdf8;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #cbd5f5;
+    font-weight: 600;
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Parpadeo de los dos puntos */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.time.blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+    .clock-card {
+        padding: 2rem;
+    }
+
+    .greeting {
+        font-size: 1.5rem;
+    }
+
+    .time {
+        font-size: 3.2rem;
+    }
+
+    .period {
+        font-size: 1.6rem;
+    }
+
+    .date {
+        font-size: 1.1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
