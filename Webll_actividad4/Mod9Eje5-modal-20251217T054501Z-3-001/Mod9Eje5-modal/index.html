@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Dialog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="page-container">
+
+        <!-- HEADER -->
+        <header class="header header-with-profile">
+
+            <!-- PERFIL -->
+            <div class="user-profile">
+                <img 
+                    src="https://media-gru2-1.cdn.whatsapp.net/v/t61.24694-24/573261442_1355330379538934_4823070328921402722_n.jpg?ccb=11-4&oh=01_Q5Aa3QF0CyfRTR4ETM2_uVDaMC4fZQKwjfsTfZLWdZXCqjr4yw&oe=694F7710&_nc_sid=5e03e0&_nc_cat=109"
+                    alt="Foto de perfil"
+                >
+                <div class="user-info">
+                    <span class="user-name">Jesus Rodrigo</span>
+                    <span class="user-role">Administrador</span>
+                </div>
+            </div>
+
+            <!-- TÍTULO -->
+            <div class="header-center">
+                <h1>🪟 Modal Dialog con JavaScript</h1>
+                <p>Ejemplo de ventanas emergentes dinámicas</p>
+            </div>
+
+        </header>
+
+        <!-- CONTENIDO -->
+        <main class="content">
+
+            <section class="intro">
+                <h2>¿Qué es un Modal?</h2>
+                <p>
+                    Un modal es una ventana emergente que aparece sobre el contenido principal
+                    y requiere la interacción del usuario antes de continuar.
+                </p>
+            </section>
+
+            <section class="demo-buttons">
+                <h3>Ejemplos de Modales</h3>
+
+                <button class="btn btn-primary" data-modal="modal1">📝 Abrir Formulario</button>
+                <button class="btn btn-success" data-modal="modal2">✅ Confirmación</button>
+                <button class="btn btn-info" data-modal="modal3">ℹ️ Información</button>
+                <button class="btn btn-warning" data-modal="modal4">🖼️ Galería de Imágenes</button>
+            </section>
+
+            <section class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Fácil de Usar</h3>
+                    <p>Interface intuitiva y sencilla</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Rápido</h3>
+                    <p>Carga instantánea sin recargar</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Seguro</h3>
+                    <p>Previene scroll del fondo</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">♿</span>
+                    <h3>Accesible</h3>
+                    <p>Cerrar con ESC</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODALES (SIN CAMBIOS) -->
+    <!-- Mantienes exactamente los mismos modales que ya tienes -->
+
+    <script src="script.js"></script>
+</body>
+</html>

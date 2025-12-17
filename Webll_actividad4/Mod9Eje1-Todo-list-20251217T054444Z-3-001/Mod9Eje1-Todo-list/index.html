@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List - Manipulación del DOM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header-layout">
+
+            <!-- ESPACIADOR IZQUIERDO (equilibra el centrado) -->
+            <div class="header-spacer"></div>
+
+            <!-- TÍTULO CENTRADO -->
+            <div class="header-text">
+                <h1>📝 Mi Lista de Tareas</h1>
+                <p>Organiza tu día de manera efectiva</p>
+            </div>
+
+            <!-- ESPACIADOR EXTRA PARA ALEJAR PERFIL -->
+            <div class="header-spacer-wide"></div>
+
+            <!-- PERFIL A LA DERECHA -->
+            <aside class="side-profile">
+                <img
+                    src="https://media-gru2-1.cdn.whatsapp.net/v/t61.24694-24/573261442_1355330379538934_4823070328921402722_n.jpg?ccb=11-4&oh=01_Q5Aa3QF0CyfRTR4ETM2_uVDaMC4fZQKwjfsTfZLWdZXCqjr4yw&oe=694F7710&_nc_sid=5e03e0&_nc_cat=109"
+                    alt="Foto de perfil"
+                >
+                <div class="profile-info">
+                    <span class="profile-role">Administrador</span>
+                    <h3 class="profile-name">Admin Jesus Rodrigo</h3>
+                </div>
+            </aside>
+
+        </header>
+
+        <!-- APP -->
+        <div class="todo-app">
+
+            <!-- INPUT -->
+            <div class="input-section">
+                <input
+                    type="text"
+                    id="todoInput"
+                    placeholder="¿Qué necesitas hacer?"
+                />
+                <button id="addBtn">Agregar</button>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    Todas <span class="count" id="allCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    Activas <span class="count" id="activeCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    Completadas <span class="count" id="completedCount">0</span>
+                </button>
+            </div>
+
+            <!-- LISTA -->
+            <ul id="todoList" class="todo-list"></ul>
+
+            <!-- ACCIONES -->
+            <div class="actions">
+                <button id="clearCompleted">Limpiar Completadas</button>
+                <span id="itemsLeft">0 tareas pendientes</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
