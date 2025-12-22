@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas</title>
+
+    <!-- NUEVA TIPOGRAFÍA -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="generator-card">
+
+            <h1 class="title">
+                <span class="icon">🔐</span>
+                Generador de Contraseñas
+            </h1>
+
+            <p class="subtitle">
+                Genera contraseñas seguras en segundos
+            </p>
+            
+            <!-- OUTPUT -->
+            <div class="password-display">
+                <input 
+                    type="text" 
+                    id="passwordOutput" 
+                    readonly 
+                    value="Haz clic en generar"
+                >
+                <button class="btn btn-icon" id="copyBtn" title="Copiar contraseña">
+                    📋
+                </button>
+            </div>
+
+            <!-- FUERZA -->
+            <div class="strength-indicator">
+                <div class="strength-bar" id="strengthBar"></div>
+            </div>
+            <p class="strength-text" id="strengthText">
+                Fuerza: -
+            </p>
+
+            <!-- FORM -->
+            <form id="generatorForm">
+
+                <div class="form-group">
+                    <label for="length">
+                        Longitud: <strong><span id="lengthValue">12</span></strong>
+                    </label>
+                    <input 
+                        type="range" 
+                        id="length" 
+                        name="length"
+                        min="4"
+                        max="32"
+                        value="12"
+                    >
+                </div>
+
+                <div class="options-group">
+                    <h3>Opciones de seguridad</h3>
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span>Mayúsculas (A–Z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span>Minúsculas (a–z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="numbers" checked>
+                        <span>Números (0–9)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="symbols">
+                        <span>Símbolos (!@#$%^&*)</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    ⚡ Generar Contraseña
+                </button>
+            </form>
+
+            <!-- HISTORIAL -->
+            <div class="history-section">
+                <h3>Historial</h3>
+                <div id="historyList">
+                    <p class="empty">Aún no se generaron contraseñas</p>
+                </div>
+
+                <button 
+                    class="btn btn-secondary" 
+                    id="clearHistoryBtn" 
+                    style="display: none;"
+                >
+                    🗑 Limpiar historial
+                </button>
+            </div>
+
+            <!-- TIPS -->
+            <div class="tips">
+                <h3>Buenas prácticas</h3>
+                <ul>
+                    <li>Usa mínimo 12 caracteres</li>
+                    <li>No reutilices contraseñas</li>
+                    <li>Combina todos los tipos de caracteres</li>
+                    <li>Usa gestores de contraseñas</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        ✓ Copiado al portapapeles
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

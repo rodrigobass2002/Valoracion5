@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- FILTROS -->
+    <aside class="filters">
+        <h2>Filtros</h2>
+
+        <label>Palabra clave</label>
+        <input type="text" id="searchInput" placeholder="Ej: Laptop, Camisa">
+
+        <label>Categoría</label>
+        <select id="categorySelect">
+            <option value="">Todas</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Hogar">Hogar</option>
+        </select>
+
+        <label>Precio máximo: <span id="priceValue">$1000</span></label>
+        <input type="range" id="priceRange" min="50" max="1000" value="1000">
+
+        <label>Calificación mínima</label>
+        <select id="ratingSelect">
+            <option value="0">Todas</option>
+            <option value="3">3 ⭐+</option>
+            <option value="4">4 ⭐+</option>
+        </select>
+
+        <button id="clearFilters" class="btn btn-danger">
+            🧹 Limpiar filtros
+        </button>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="content">
+
+        <div class="top-bar">
+            <span id="loadingText">Productos disponibles</span>
+
+            <div class="pagination">
+                <button id="prevBtn" class="btn btn-outline">⬅ Anterior</button>
+                <span id="pageInfo">Página 1</span>
+                <button id="nextBtn" class="btn btn-primary">Siguiente ➡</button>
+            </div>
+        </div>
+
+        <div id="productsGrid" class="products-grid"></div>
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
