@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* 🔥 NUEVO FONDO */
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ecfdfb;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: rgba(236, 253, 251, 0.9);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* 🔘 BOTONES */
+.btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(26, 188, 156, 0.5);
+}
+
+/* COLUMNAS */
+.columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* 🧊 CUADROS GRANDES */
+.column {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.column h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* DROPZONE */
+.dropzone {
+    min-height: 300px;
+    background: #ecfdfb;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px dashed #b2dfdb;
+    transition: all 0.3s;
+}
+
+.dropzone.drag-over {
+    background: #d1f2eb;
+    border-color: #1abc9c;
+    box-shadow: 0 0 25px rgba(26, 188, 156, 0.35);
+}
+
+/* 🧊 ITEMS */
+.item {
+    background: #ffffff;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+}
+
+.item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.item.dragging {
+    opacity: 0.5;
+    transform: rotate(4deg);
+}
+
+/* ICONO */
+.drag-handle {
+    font-size: 1.2rem;
+    color: #16a085;
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+    .columns {
+        grid-template-columns: 1fr;
+    }
+}
