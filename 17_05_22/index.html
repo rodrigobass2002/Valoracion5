@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación de Carta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Contenedor con las rosas lilas alrededor -->
+        <div class="roses-container">
+            <div class="rose top-left"></div>
+            <div class="rose top-right"></div>
+            <div class="rose bottom-left"></div>
+            <div class="rose bottom-right"></div>
+        </div>
+
+        <div class="container">
+            <div class="envelope" id="envelope">
+                <div class="front">
+                    <div class="flap"></div>
+                </div>
+                <div class="back">
+                    <div class="flap"></div>
+                    <div class="content">
+                        <div class="letter">
+                            <p id="text">Amiga Mia,</p>
+                            <p id="text">Quiero comenzar diciéndote lo agradecido que estoy con Dios por haberte cruzado en mi camino. De alguna manera, Él sabía que mi vida necesitaba de ti, y sin siquiera buscarte, llegaste a mi mundo para transformarlo de una manera increíble. <strong>Tu llegada me cambió por completo, dándole a mi vida un nuevo sentido y una razón de ser.</strong></p>
+
+                            <p id="text">Cada día que paso a tu lado, me doy cuenta de lo afortunado que soy de tenerte. <strong>Estoy profundamente orgulloso de todo lo que has logrado, de la mujer tan fuerte y maravillosa que eres.</strong> Y lo más hermoso es que, al caminar a tu lado, puedo ver cómo tu comunión con Dios es una luz que te guía en todo lo que haces.</p>
+
+                            <p id="text">Cuando te digo que estoy orgulloso de ti, créeme que lo siento en lo más profundo de mi ser. <strong>Cada paso que das, cada logro, cada sonrisa que compartimos... todo eso me llena de felicidad.</strong> staré siempre a tu lado, en cada paso, en cada reto, y en cada momento de tu vida.</p>
+
+                            <p id="text">Espero que esta carta haya tocado tu corazón de la misma manera que tú has tocado el mío. No importa cuán lejos haya llegado, siempre estaré mejorando para ti, para nosotros. <strong>Mi amor por ti no tiene límites, y te lo repito:</strong> Te quiero mucho, mucho, mucho...</p>
+
+                            <p id="text">Con todo mi amor,</p>
+                            <p id="text"><strong>[Rodrigo Brailco]</strong></p>
+
+                            <p id="text"><em>Siempre estaré aquí para ti, sin importar lo que pase. Porque tú eres mi todo.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacio para agregar fotos 2 y 3 a los lados de la carta y foto 1 en el centro -->
+            <div class="photo-gallery">
+                <!-- Foto 2 más grande, a la izquierda -->
+                <img src="imagenes/foto2.jpg" alt="Foto 2" class="additional-photo left-photo">
+                <!-- Foto 1 en el centro -->
+                <div class="photo-container center-photo">
+                    <img src="imagenes/foto1.jpg" alt="Foto en la carta" class="letter-photo">
+                </div>
+                <!-- Foto 3 más grande, a la derecha -->
+                <img src="imagenes/foto3.jpg" alt="Foto 3" class="additional-photo right-photo">
+            </div>
+        </div>
+
+        <!-- Botón para abrir la carta colocado debajo -->
+        <div class="button-container">
+            <button id="openButton" class="open-button">Abrir Carta</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir la carta
+        document.getElementById('openButton').addEventListener('click', function() {
+            document.getElementById('envelope').classList.toggle('opened');
+            document.querySelector('.photo-gallery').classList.toggle('visible');  // Hacer que las fotos aparezcan
+        });
+    </script>
+</body>
+</html>
