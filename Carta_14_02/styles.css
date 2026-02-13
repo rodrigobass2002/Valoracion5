@@ -1,0 +1,191 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0b3e6; /* Fondo lila claro */
+    display: flex;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;      /* Centra el contenido verticalmente */
+    min-height: 100vh;         /* Asegura que ocupe el 100% de la altura de la pantalla */
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: relative;
+    overflow: auto; /* Permite desplazamiento si el contenido es más grande */
+    text-align: center; /* Alinea todo el texto en el centro */
+}
+
+/* Contenedor de rosas lilas */
+.roses-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Para que no interfiera con el contenido */
+}
+
+.rose {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url('imagenes/rosa-lila.jpg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.6;
+}
+
+.top-left {
+    top: 10%;
+    left: 5%;
+}
+
+.top-right {
+    top: 10%;
+    right: 5%;
+}
+
+.bottom-left {
+    bottom: 10%;
+    left: 5%;
+}
+
+.bottom-right {
+    bottom: 10%;
+    right: 5%;
+}
+
+/* Estilo para el botón */
+.open-button {
+    margin-top: 50px;
+    padding: 15px 30px;
+    background-color: #8e44ad; /* Lila oscuro */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.open-button:hover {
+    background-color: #732d91; /* Cambio de color al pasar el mouse */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente */
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+    padding: 10px; /* Agrega algo de espacio alrededor del contenido */
+}
+
+/* Estilo del sobre */
+.envelope {
+    width: 80%;  /* Ancho ajustado de la carta */
+    max-width: 1600px;  /* Tamaño máximo de la carta */
+    min-height: 1000px; /* Aseguramos que la carta tenga una altura mínima */
+    height: auto; /* Altura dinámica para ajustarse al contenido */
+    background-color: #d6a8e5; /* Color de la carta lila */
+    border-radius: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    transform-origin: center;
+    margin-top: 50px; /* Bajé la carta para asegurarnos que no se corte */
+    opacity: 0; /* Inicialmente invisible */
+    margin-bottom: 50px; /* Separación inferior */
+}
+
+.envelope.opened {
+    transform: rotateX(0deg); /* La carta se abre correctamente */
+    opacity: 1; /* Cuando se abre, la carta aparece */
+}
+
+/* Estilo del contenido de la carta */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.letter {
+    width: 100%;
+    height: auto;
+    background-color: #f7f7f7;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    font-family: 'Dancing Script', cursive; /* Fuente manuscrita */
+    font-size: 24px; /* Tamaño de letra adecuado para carta */
+    line-height: 1.8; /* Espaciado entre líneas */
+    margin-bottom: 20px;
+    background: #fff7e6; /* Fondo color papel */
+    border: 2px solid #e3c4b4; /* Borde color beige suave */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para simular profundidad */
+}
+
+#text {
+    text-align: justify;
+    font-size: 20px;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 20px;
+}
+
+/* Fotos inicialmente invisibles */
+.photo-gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px; /* Añadí más espacio entre las fotos */
+    margin-top: 50px;
+    opacity: 0; /* Fotos invisibles hasta abrir la carta */
+    transition: opacity 1s ease;
+}
+
+.photo-gallery.visible {
+    opacity: 1; /* Fotos visibles después de abrir la carta */
+}
+
+.additional-photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Foto 1 en el centro, debajo de las otras fotos */
+.photo-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-photo {
+    width: 100%;
+    max-width: 500px; /* Tamaño ajustado de la foto 1 */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Contenedor del botón debajo de la carta */
+.button-container {
+    margin-top: 50px; /* Separación adicional entre la carta y el botón */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
