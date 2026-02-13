@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación de Carta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Contenedor con las rosas lilas alrededor -->
+        <div class="roses-container">
+            <div class="rose top-left"></div>
+            <div class="rose top-right"></div>
+            <div class="rose bottom-left"></div>
+            <div class="rose bottom-right"></div>
+        </div>
+
+        <div class="container">
+            <div class="envelope" id="envelope">
+                <div class="front">
+                    <div class="flap"></div>
+                </div>
+                <div class="back">
+                    <div class="flap"></div>
+                    <div class="content">
+                        <div class="letter">
+                            <!-- Foto 1 dentro de la carta -->
+                            <div class="photo-container">
+                                <img src="imagenes/foto1.jpg" alt="Foto en la carta" class="letter-photo">
+                            </div>
+                            <p id="text">La verdad que doy gracias a Dios por tu vida, Dios si sabia que necesitaba mi vida y por eso se que te envio a ti, sin necesidad de buscarte solo llegaste a ella y me la cambiaste para bien. Quiero decirte que estoy muy orgulloso de todo lo que estas logrando y por tu comunion con Dios. Creeme cuando te digo que si estoy Orgulloso de vos, espero te haya gustado mi carta la verdad, ya voy mejorando la verdad, Te Quiero mucho, mucho, mucho....</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="openButton">Abrir Carta</button>
+
+            <!-- Espacio para agregar fotos 2 y 3 a los lados de la carta -->
+            <div class="additional-photos">
+                <h2>Más Fotos</h2>
+                <div class="photo-gallery">
+                    <!-- Foto 2 más grande, a la izquierda -->
+                    <img src="imagenes/foto2.jpg" alt="Foto 2" class="additional-photo">
+                    <!-- Foto 3 más grande, a la derecha -->
+                    <img src="imagenes/foto3.jpg" alt="Foto 3" class="additional-photo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir la carta
+        document.getElementById('openButton').addEventListener('click', function() {
+            document.getElementById('envelope').classList.toggle('opened');
+        });
+    </script>
+</body>
+</html>
